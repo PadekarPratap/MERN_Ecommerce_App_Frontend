@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { filter_page } from "../redux/features/globalSlice";
+import { filter_page, reset_page } from "../redux/features/globalSlice";
 
 const FilterProducts = () => {
   const [filteration, setFilteration] = useState("");
   const dispatch = useDispatch()
 
   useEffect(() => {
-
+    dispatch(reset_page())
     dispatch(filter_page(filteration))
 
   }, [filteration])
