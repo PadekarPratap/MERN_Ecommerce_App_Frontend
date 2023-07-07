@@ -25,7 +25,7 @@ const EditProductPage = () => {
   const form = useForm({
     defaultValues: async () => {
       const { data } = await axios.get(
-        `http://localhost:8080/api/products/${id}`,
+        `/api/products/${id}`,
         { withCredentials: true }
       );
       console.log(data);
