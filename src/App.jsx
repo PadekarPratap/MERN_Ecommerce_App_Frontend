@@ -12,7 +12,7 @@ import Singin from "./pages/Singin";
 import ProtectedRoute from "./components/ProtectedRoute";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
-import CheckOutPage from "./pages/CheckoutPage";
+import CheckOutPage from "./pages/CheckOutPage";
 import PlaceOrderPage from "./pages/PlaceOrderPage";
 import OrdersPage from "./pages/OrdersPage";
 import PaymentSuccessPage from "./pages/PaymentSuccessPage";

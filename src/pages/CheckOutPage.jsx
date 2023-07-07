@@ -1,44 +1,13 @@
 import { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { BsChevronLeft } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { ADD_PAYMENT_METHOD, ADD_SHIPPING_ADDRESS } from "../redux/features/cartSlice";
 import { useNavigate } from "react-router-dom";
 import axios from "../api/axios";
+import RenderButton from "../components/RenderButton";
 
-const RenderButton = ({ formSteps, setFormSteps, formState }) => {
-  const { isValid } = formState;
-
-  const nextStep = () => {
-    if (isValid) {
-      setFormSteps((prev) => prev + 1);
-    }
-  };
-
-  if (formSteps === 1) {
-    return (
-      <div className="mt-4">
-        <Button variant="dark" type="submit">
-          Continue
-        </Button>
-      </div>
-    );
-  } else {
-    return (
-      <div className="mt-4">
-        <button
-          disabled={!isValid}
-          onClick={nextStep}
-            className="btn btn-dark"
-          type="button"
-        >
-          Continue
-        </button>
-      </div>
-    );
-  }
-};
 
 const CheckoutPage = () => {
 
@@ -200,4 +169,5 @@ const CheckoutPage = () => {
     </div>
   );
 };
+
 export default CheckoutPage;
