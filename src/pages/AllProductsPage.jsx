@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "../api/axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button, Col, Row, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -15,8 +15,10 @@ const deleteProduct = async (id) => {
 };
 
 const AllProductsPage = () => {
-  const { userDetails } = useSelector((state) => state.user);
 
+  const[pageNum, setPageNum] = useState(1)
+
+  const { userDetails } = useSelector((state) => state.user);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,19 +28,18 @@ const AllProductsPage = () => {
   }, [userDetails, navigate]);
 
   const fetchAllProducts = async () => {
-    const { data } = await axios.get(`/api/products?`);
+    const { data } = await axios.get(`/api/products?pageNumber=${pageNum}`);
   
-    return data.products;
+    return data;
   };
-  
 
   const {
-    data: products,
+    data,
     isLoading,
     isError,
     error,
   } = useQuery({
-    queryKey: ["adminAllProducts"],
+    queryKey: ["adminAllProducts", pageNum],
     queryFn: fetchAllProducts,
   });
 
@@ -98,7 +99,7 @@ const AllProductsPage = () => {
                 </thead>
 
                 <tbody>
-                  {products?.map((product, index) => (
+                  {data?.products?.map((product, index) => (
                     <tr key={product._id}>
                       <td>{index + 1}</td>
                       <td>{product._id}</td>
@@ -128,6 +129,11 @@ const AllProductsPage = () => {
           </Row>
         </div>
       )}
+      {data?.pages > 1 && <div className="d-flex align-items-center gap-2 justify-content-center mt-4">
+        <Button disabled={pageNum <= 1} onClick={() => setPageNum(prev => prev - 1)} variant="light">Prev</Button>
+        {data?.page} of {data?.pages}
+        <Button disabled={pageNum >= data?.pages}  onClick={() => setPageNum(prev => prev + 1)} variant="light">Next</Button>
+      </div>}
     </>
   );
 };
