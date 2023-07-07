@@ -5,9 +5,18 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const UserEditPage = () => {
   const navigate = useNavigate();
+  const {userDetails} = useSelector((state) => state.user)
+
+  useEffect(() =>{
+    if(!userDetails?.isAdmin){
+      navigate('/')
+    }
+  }, [userDetails])
 
   const { id } = useParams();
 

@@ -4,6 +4,8 @@ import { useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
 import { ImCross } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const fetchAllOrders = async () => {
   const { data } = await axios.get("/api/orders");
@@ -13,6 +15,14 @@ const fetchAllOrders = async () => {
 
 const AllOrdersPage = () => {
   const navigate = useNavigate();
+
+  const {userDetails} = useSelector((state) => state.user)
+
+  useEffect(() =>{
+    if(!userDetails?.isAdmin){
+      navigate('/')
+    }
+  }, [userDetails])
 
   const { data: orders } = useQuery({
     queryKey: ["AllAdminOrders"],

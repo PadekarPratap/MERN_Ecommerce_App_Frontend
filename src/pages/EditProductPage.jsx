@@ -1,15 +1,26 @@
 import axios from "../api/axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
 const EditProductPage = () => {
+
+
   const { id } = useParams();
   const navigate = useNavigate();
+
+  const {userDetails} = useSelector((state) => state.user)
+
+  useEffect(() =>{
+    if(!userDetails?.isAdmin){
+      navigate('/')
+    }
+  }, [userDetails])
 
   const [loading, setLoading] = useState(true);
 
