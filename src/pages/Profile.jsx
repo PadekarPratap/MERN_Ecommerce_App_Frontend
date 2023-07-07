@@ -53,7 +53,7 @@ const Profile = () => {
 
   return (
     <>
-    <Meta title='Meta' />
+    <Meta title='Code Shop Pro | Profile' />
     <Row>
       <Col md={3}>
         <h2>Profile</h2>
