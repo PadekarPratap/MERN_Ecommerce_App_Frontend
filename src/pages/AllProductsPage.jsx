@@ -94,6 +94,7 @@ const AllProductsPage = () => {
                     <th>Price</th>
                     <th>Category</th>
                     <th>Brand</th>
+                    <th>Qty</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -107,6 +108,7 @@ const AllProductsPage = () => {
                       <td>$ {product.price}</td>
                       <td>{product.category}</td>
                       <td>{product.brand}</td>
+                      <td>{product.qty}</td>
                       <td className="d-flex gap-3 align-items-center">
                         <Link
                           to={`/admin/product/${product._id}/edit`}
