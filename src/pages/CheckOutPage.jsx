@@ -7,6 +7,7 @@ import { ADD_PAYMENT_METHOD, ADD_SHIPPING_ADDRESS } from "../redux/features/cart
 import { useNavigate } from "react-router-dom";
 import axios from "../api/axios";
 import RenderButton from "../components/RenderButton";
+import Meta from "../components/Meta";
 
 
 const CheckoutPage = () => {
@@ -53,6 +54,8 @@ const CheckoutPage = () => {
   const goPrevStep = () => formSteps > 0 && setFormSteps((prev) => prev - 1);
 
   return (
+    <>
+    <Meta title='Checkout' />
     <div className="form-container">
       <Form noValidate onSubmit={handleSubmit(handleCheckout)}>
         <div
@@ -167,6 +170,7 @@ const CheckoutPage = () => {
         />
       </Form>
     </div>
+    </>
   );
 };
 

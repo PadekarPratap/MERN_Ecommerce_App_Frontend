@@ -7,6 +7,7 @@ import Message from "../components/Message.jsx";
 import { useSelector } from "react-redux";
 import Paginate from "../components/Paginate.jsx";
 import FilterProducts from "../components/FilterProducts.jsx";
+import Meta from "../components/Meta.jsx";
 
 
 
@@ -32,6 +33,7 @@ const Home = () => {
   
   return (
     <>
+      <Meta />
       <div>
         <h1 className="text-center">Latest Products</h1>
         <FilterProducts />

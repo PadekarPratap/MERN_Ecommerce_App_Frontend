@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ADD_TO_CART } from "../redux/features/cartSlice.js";
 import ReviewsOfProducts from "../components/ReviewsOfProducts";
+import Meta from "../components/Meta";
 
 const fetchProduct = async (id) => {
   const { data } = await axios.get(`/api/products/${id}`);
@@ -48,6 +49,7 @@ const ProductPage = () => {
 
   return (
     <>
+    <Meta title={product?.name} />
       <div>
         <Button onClick={() => navigate(-1)} variant="light">
           Go Back

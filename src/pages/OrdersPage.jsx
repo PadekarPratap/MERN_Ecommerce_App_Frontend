@@ -7,6 +7,7 @@ import { format } from "date-fns";
 import Loader from "../components/Loader";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import Meta from "../components/Meta";
 
 const fetchOrderDetails = async (orderId) => {
   const { data } = await axios.get(`/api/orders/${orderId}`);
@@ -100,6 +101,7 @@ const OrdersPage = () => {
 
   return (
     <>
+    <Meta title='Code Shop Pro | Order' />
       {isLoading ? (
         <Loader />
       ) : isError ? (

@@ -7,6 +7,7 @@ import { onUserUpdate } from "../redux/features/userSlice";
 import Message from "../components/Message";
 import { toast } from "react-toastify";
 import FetchUserOrders from "../components/FetchUserOrders";
+import Meta from "../components/Meta";
 
 const updateUser = async (values) => {
   const { data } = await axios.put(`/api/users/profile/update`, values);
@@ -51,6 +52,8 @@ const Profile = () => {
   const password = watch("password");
 
   return (
+    <>
+    <Meta title='Meta' />
     <Row>
       <Col md={3}>
         <h2>Profile</h2>
@@ -123,6 +126,7 @@ const Profile = () => {
         <FetchUserOrders />
       </Col>
     </Row>
+    </>
   );
 };
 export default Profile;

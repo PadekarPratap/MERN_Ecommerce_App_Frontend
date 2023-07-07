@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import FetchOptions from "../components/FetchOptions";
 import { RiDeleteBin2Fill } from "react-icons/ri";
 import { REMOVE_FROM_CART } from "../redux/features/cartSlice";
+import Meta from "../components/Meta";
 
 const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -29,6 +30,8 @@ const Cart = () => {
   };
 
   return (
+    <>
+    <Meta title='Code Shop Pro | Cart' />
     <Row>
       <Col md={8}>
         <h1 className="mb-4">Shopping Cart</h1>
@@ -97,6 +100,8 @@ const Cart = () => {
         </ListGroup>
       </Col>
     </Row>
+
+    </>
   );
 };
 export default Cart;

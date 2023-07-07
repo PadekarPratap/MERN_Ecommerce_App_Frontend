@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader";
 import { RESET_CART } from "../redux/features/cartSlice";
 import { useEffect, useState } from "react";
+import Meta from "../components/Meta";
 
 const createOrder = async (values) => {
   const { data } = await axios.post(`/api/orders/create`, values);
@@ -67,6 +68,7 @@ const PlaceOrderPage = () => {
 
   return (
     <>
+    <Meta title='Code Shop Pro | Place Order' />
       <div className="mb-4">
         {isError && <Message>{error.response.data.message}</Message>}
       </div>
