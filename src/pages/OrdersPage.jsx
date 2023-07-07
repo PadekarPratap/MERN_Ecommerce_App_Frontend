@@ -79,7 +79,7 @@ const OrdersPage = () => {
       image:
         "https://i.pinimg.com/originals/ef/82/4e/ef824ee86efb3ec6cc6eb6758cd5e70c.png",
       order_id: order?.orderStatus.orderId, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      callback_url: `http://localhost:8080/api/paymentverification`,
+      callback_url: `https://mern-stack-ecommerce-app-code-shop-pro.onrender.com/api/paymentverification`,
       prefill: {
         name: order?.user.name,
         email: order?.user.email,
