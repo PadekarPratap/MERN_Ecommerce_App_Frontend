@@ -94,7 +94,7 @@ const AllProductsPage = () => {
                     <th>Price</th>
                     <th>Category</th>
                     <th>Brand</th>
-                    <th>Qty</th>
+                    <th>Stock</th>
                     <th></th>
                   </tr>
                 </thead>
