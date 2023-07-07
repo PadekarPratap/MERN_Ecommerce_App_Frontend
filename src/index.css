@@ -1,0 +1,67 @@
+.main {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+.img-container {
+  overflow: hidden;
+}
+.scale-img {
+  transition: transform 1s;
+}
+
+.scale-img:hover {
+  transform: scale(1.1);
+}
+
+img{
+  max-width: 100%;
+  display: block;
+}
+
+.link-primary{
+  text-decoration: underline;
+}
+
+.del-icon{
+  cursor: pointer;
+  color: red;
+}
+
+.form-container{
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+small{
+  color: red;
+  font-weight: 100;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.text-green{
+  color: green;
+}
+
+.text-red{
+  color: red;
+}
+
+th{
+  text-transform: uppercase;
+}
+
+textarea{
+  resize: none;
+}
+
+.min-h{
+  min-height: 420px;
+}
